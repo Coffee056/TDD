@@ -18,7 +18,7 @@ class HomePageTest(TestCase):
         self.assertIn('A new list item', response.content.decode())
         self.assertTemplateUsed(response,'home.html')
 
-class ItemModelTest(Testcase):
+class ItemModelTest(TestCase):
 
     def test_saving_and_retrieving_items(self):
         first_item = Item()
@@ -29,7 +29,7 @@ class ItemModelTest(Testcase):
         second_item.text = 'Item the second'
         second_item.save()
 
-        saved_items = Item.object.all()
+        saved_items = Item.objects.all()
         self.assertEqual(saved_items.count(),2)
 
         first_saved_item = saved_items[0]
